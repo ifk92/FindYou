@@ -7,6 +7,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Acr;
+using Acr.UserDialogs;
+
 
 namespace FindYou.Droid
 {
@@ -19,6 +22,11 @@ namespace FindYou.Droid
 			ToolbarResource = Resource.Layout.Toolbar;
 
 			base.OnCreate(bundle);
+
+			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
+			UserDialogs.Init(this);
+
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 

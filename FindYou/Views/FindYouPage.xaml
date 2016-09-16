@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:FindYou" 
+		x:Class="FindYou.FindYouPage"
+		Title="{Binding Title}">
+	<ContentPage.Content>
+		<StackLayout>
+
+			<ListView 
+				x:Name="listView"
+				BackgroundColor="White"
+				ItemsSource="{Binding Items}">
+
+				<ListView.ItemTemplate>
+				<DataTemplate>
+
+						<ViewCell>
+			          	<ViewCell.View>
+
+			          	<Grid>
+			          		<Grid.RowDefinitions>
+			          			<RowDefinition Height="Auto"/>
+			          			<RowDefinition Height="Auto"/>
+			          			<RowDefinition Height="Auto"/>
+			          			<RowDefinition Height="Auto"/>
+			          		</Grid.RowDefinitions>
+			          		<Grid.ColumnDefinitions>
+			          			<ColumnDefinition Width="Auto"/>
+			          			<ColumnDefinition Width="*"/>
+			          			<ColumnDefinition Width="Auto"/>
+			          		</Grid.ColumnDefinitions>
+
+					
+							
+								<Image
+				          			Grid.RowSpan="4"
+									Source="{Binding ImageUri}"
+									HeightRequest="40"
+									WidthRequest="40"/>	
+									
+								<Label
+									Grid.Column="1" 
+									Text="{Binding UserName}"
+									TextColor="Black"
+									FontSize="12"
+									FontAttributes="Bold"/>
+								<Label 
+									Grid.Row="1"
+									Grid.Column="1" 
+									Text="{Binding Status}"
+									TextColor="#FFA733"
+									FontSize="12"/>
+								
+			          	</Grid>
+			          </ViewCell.View>
+			        </ViewCell>
+
+
+
+				</DataTemplate>
+			</ListView.ItemTemplate>
+			</ListView>
+			
+		</StackLayout>
+	</ContentPage.Content>
+	
+</ContentPage>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="FindYou.TextPage"
+	Title="{Binding Title}"
+	IsBusy="{Binding IsBusy}">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Padding="10" IsVisible="{Binding IsBusy}">
+		<ActivityIndicator  HorizontalOptions="Center"
+						   IsRunning="{Binding IsBusy}"
+						   IsVisible="{Binding IsBusy}"/>
+	    <Label HorizontalOptions="Center"
+	    	 VerticalOptions="Center" 
+	    	 Text="{Binding Message}"/>
+	</StackLayout>
+	<ScrollView VerticalOptions="FillAndExpand">
+	<Grid VerticalOptions="FillAndExpand">
+            <Grid.ColumnSpacing>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>20</OnIdiom.Phone>
+                    <OnIdiom.Tablet>40</OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.ColumnSpacing>
+            <Grid.RowSpacing>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>10</OnIdiom.Phone>
+                    <OnIdiom.Tablet>20</OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.RowSpacing>
+            <Grid.Padding>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>10,10,10,0</OnIdiom.Phone>
+                    <OnIdiom.Tablet>20,20,20,0</OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.Padding>
+            <Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+
+
+		<Label
+			Grid.Row="4"
+			FontSize="Medium"
+			Text="Opener:"
+			TextColor="#3498DB"
+			VerticalOptions="Center"  />
+
+		<Entry 
+			Grid.Row="4"
+			Grid.Column="1"
+			Text="{Binding Opener}"
+			Placeholder="Opener" 
+			Keyboard="Default"/>
+
+		<Label
+			Grid.Row="5"
+			FontAttributes="Bold"
+			FontSize="Medium"
+			Text="Body:"
+			TextColor="#3498DB"
+			VerticalOptions="Center"  />
+
+		<Editor 
+			Grid.Row="5"
+      Grid.RowSpan="2"
+      Grid.Column="1"
+			Grid.ColumnSpan="1"
+			HeightRequest="150"
+			Text="{Binding Body}"
+			BackgroundColor="#103498DB"
+			
+			/>
+
+		
+		<Label
+			Grid.Row="7"
+			FontSize="Medium"
+			Text="Closer:"
+			TextColor="#3498DB"
+			VerticalOptions="Center"  />
+
+        
+		<Entry 
+			Grid.Row="7"
+			Grid.Column="1"
+			Text="{Binding Closer}" 
+			Placeholder="Closer"
+			Keyboard="Default" />
+
+		
+
+	</Grid>
+
+	</ScrollView>
+	<Button 
+			x:Name="ButtonSubmitFeedback"
+			BackgroundColor="#3498DB"
+			BorderRadius="0"
+			TextColor="White" 
+			Text="Submit"
+			Command="{Binding SaveFeedbackCommand}"/>
+	</StackLayout>	
+	</ContentPage.Content>
+</ContentPage>

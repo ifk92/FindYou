@@ -1,14 +1,31 @@
 ﻿using Xamarin.Forms;
+using System.Threading.Tasks;
+using AppServiceHelpers.Abstractions;
+using AppServiceHelpers;
+
+
 
 namespace FindYou
 {
 	public partial class App : Application
 	{
+		// Add the client
+		IEasyMobileServiceClient client;
+
 		public App()
 		{
 			InitializeComponent();
 
-			MainPage = new FindYouPage();
+			client = new EasyMobileServiceClient();
+			client.Initialize("http://talkoral.azurewebsites.net");
+			client.RegisterTable<Person>();
+			client.RegisterTable<User>();
+			client.FinalizeSchema();
+
+			// Add Client in argument
+			MainPage = new NavigationPage(new HomePage(client));
+
+
 		}
 
 		protected override void OnStart()
