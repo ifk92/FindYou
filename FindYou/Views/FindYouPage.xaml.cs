@@ -17,9 +17,9 @@ namespace FindYou
 		{
 			base.OnAppearing();
 
-			var vm = (PersonsViewModel)BindingContext;
-			if (vm.Items.Count > 0 || vm.IsBusy)
-				return;
+			var vm = (PersonsViewModel) BindingContext;
+			//if (vm.Items.Count > 0 || vm.IsBusy)
+			//	return;
 
 			vm.RefreshCommand.Execute(null);
 
