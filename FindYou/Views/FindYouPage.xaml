@@ -9,7 +9,12 @@
 
 			<ListView 
 				x:Name="listView"
-				BackgroundColor="White"
+				BackgroundColor="#F7F7F7" 
+				CachingStrategy="RecycleElement" 
+				SelectedItem="{Binding SelectedPerson, Mode=TwoWay}"
+				IsPullToRefreshEnabled="True"
+          		RefreshCommand="{Binding RefreshCommand}"
+          		IsRefreshing="{Binding IsBusy, Mode=OneWay}"
 				ItemsSource="{Binding Items}">
 
 				<ListView.ItemTemplate>
