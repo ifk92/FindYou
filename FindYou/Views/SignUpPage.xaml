@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		IsBusy="{Binding IsBusy}"
 		x:Class="FindYou.SignUpPage">
 	<ContentPage.Content>
+		<StackLayout>
+			
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Padding="10" IsVisible="{Binding IsBusy}">
+		      <ActivityIndicator  HorizontalOptions="Center"
+						   IsRunning="{Binding IsBusy}"
+						   IsVisible="{Binding IsBusy}"/>
+	          <Label HorizontalOptions="Center"
+	    	  VerticalOptions="Center" 
+	    	  Text="{Binding Message}"/>
+		    </StackLayout>
 
+		    <ScrollView VerticalOptions="FillAndExpand">
+	<Grid VerticalOptions="FillAndExpand">
+            <Grid.ColumnSpacing>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>20</OnIdiom.Phone>
+                    <OnIdiom.Tablet>40</OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.ColumnSpacing>
+            <Grid.RowSpacing>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>10</OnIdiom.Phone>
+                    <OnIdiom.Tablet>20</OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.RowSpacing>
+            <Grid.Padding>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>10,10,10,0</OnIdiom.Phone>
+                    <OnIdiom.Tablet>20,20,20,0</OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.Padding>
+            <Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+
+
+		<Label
+			Grid.Row="4"
+			FontSize="Medium"
+			Text="UserName:"
+			TextColor="#3498DB"
+			VerticalOptions="Center"  />
+
+		<Entry 
+			Grid.Row="4"
+			Grid.Column="1"
+			Text="{Binding UserName}"
+			Placeholder="nom d'utilisateur" 
+			Keyboard="Default"/>
+
+		<Label
+			Grid.Row="5"
+			FontSize="Medium"
+			Text="PassWord:"
+			TextColor="#3498DB"
+			VerticalOptions="Center"  />
+
+        
+		<Entry 
+			Grid.Row="5"
+			Grid.Column="1"
+			Text="{Binding PassWord}" 
+			Placeholder="mot de passe"
+			Keyboard="Default" />
+
+		
+
+		<Label
+			Grid.Row="6"
+			FontSize="Medium"
+			Text="Email:"
+			TextColor="#3498DB"
+			VerticalOptions="Center"  />
+
+		<Entry 
+			Grid.Row="6"
+			Grid.Column="1"
+			Text="{Binding Email}"
+			Placeholder="email" 
+			Keyboard="Default"/>
+
+		
+
+
+	</Grid>
+
+	</ScrollView>
+			
+		</StackLayout>
 		
 	</ContentPage.Content>
 </ContentPage>
